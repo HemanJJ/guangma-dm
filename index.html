@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>光碼咖啡 × 雲磨豆機｜一頁招商 DM</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body {
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    width:210mm; height:297mm; overflow:hidden;
+    background:#FBF5EC; color:#3A2A1A;
+    display:flex; flex-direction:column;
+  }
+
+  /* ===== 頂部品牌條 ===== */
+  .brandbar {
+    background:#4A3320; color:#F3E3CB; text-align:center;
+    padding:5mm 0; font-size:10.5pt; letter-spacing:2px;
+  }
+  .brandbar b { color:#F5B56B; }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align:center; padding:10mm 14mm 8mm;
+  }
+  .hero .kicker {
+    display:inline-block; background:#C87941; color:#fff;
+    font-size:10pt; letter-spacing:1px; padding:2mm 6mm; border-radius:999px; margin-bottom:6mm;
+  }
+  .hero h1 { font-size:31pt; line-height:1.25; font-weight:800; color:#4A3320; }
+  .hero h1 span { color:#C87941; }
+  .hero .sub { font-size:13.5pt; color:#6B4A2F; margin-top:4mm; font-weight:600; }
+  .chips { display:flex; justify-content:center; gap:4mm; margin-top:6mm; }
+  .chips div {
+    background:#fff; border:1.5px solid #C87941; color:#4A3320;
+    border-radius:999px; padding:2mm 5mm; font-size:10.5pt; font-weight:600;
+  }
+
+  /* ===== 機制帶 ===== */
+  .mech {
+    background:#4A3320; color:#F3E3CB; text-align:center; padding:6mm 10mm;
+  }
+  .mech .t { font-size:16pt; font-weight:800; color:#F5B56B; letter-spacing:1px; }
+  .mech .s { font-size:11pt; margin-top:2mm; color:#E8D5B8; }
+
+  /* ===== 數字區 ===== */
+  .nums { display:flex; padding:7mm 8mm 2mm; gap:4mm; }
+  .num {
+    flex:1; background:#fff; border:1px solid #E0CFB4; border-radius:3mm;
+    text-align:center; padding:5mm 2mm;
+  }
+  .num .big { font-size:20pt; font-weight:800; color:#C87941; }
+  .num .big small { font-size:10pt; color:#6B4A2F; font-weight:700; }
+  .num .cap { font-size:9.5pt; color:#6B4A2F; margin-top:1.5mm; line-height:1.5; }
+
+  /* ===== 流程帶 ===== */
+  .flow {
+    display:flex; align-items:center; justify-content:center;
+    gap:0; padding:7mm 8mm; background:#FBF5EC;
+  }
+  .step { text-align:center; width:30mm; }
+  .step .ic { font-size:15pt; }
+  .step .tx { font-size:9pt; color:#4A3320; font-weight:600; margin-top:1mm; line-height:1.4; }
+  .arrow { font-size:14pt; color:#C87941; font-weight:800; padding:0 1mm; }
+  .flownote { text-align:center; font-size:9.5pt; color:#6B4A2F; margin-top:-3mm; padding-bottom:4mm; }
+
+  /* ===== 誰適合 ===== */
+  .who {
+    background:#F1E7D8; padding:6mm 10mm 7mm; text-align:center;
+  }
+  .who .h { font-size:13pt; font-weight:800; color:#4A3320; letter-spacing:1px; margin-bottom:4mm; }
+  .tags { display:flex; flex-wrap:wrap; justify-content:center; gap:3mm; }
+  .tags span {
+    background:#fff; border:1px solid #C87941; color:#6B4A2F;
+    border-radius:999px; padding:1.5mm 4mm; font-size:10pt; font-weight:600;
+  }
+  .coach { font-size:9.5pt; color:#6B4A2F; margin-top:4mm; line-height:1.7; }
+
+  /* ===== CTA ===== */
+  .cta {
+    background:#C87941; color:#fff; text-align:center; padding:8mm 12mm 7mm;
+  }
+  .cta .h { font-size:17pt; font-weight:800; letter-spacing:1px; }
+  .cta .offer { font-size:11.5pt; margin-top:2.5mm; line-height:1.6; }
+  .cta .offer b { color:#FFE9C9; }
+  .cta .btns { display:flex; justify-content:center; gap:8mm; margin-top:5mm; align-items:flex-start; }
+  .linebox { text-align:center; }
+  .qr {
+    width:26mm; height:26mm; background:#fff; color:#999;
+    border:2px dashed #A96A3B; border-radius:2mm;
+    display:flex; align-items:center; justify-content:center;
+    font-size:8pt; margin:0 auto 2mm;
+  }
+  .linebox .lb { font-size:10pt; font-weight:700; }
+  .linebox .ls { font-size:8.5pt; color:#FFE9C9; margin-top:1mm; }
+  .fbbox { text-align:center; padding-top:2mm; }
+  .fbbox .lb { font-size:10pt; font-weight:700; }
+  .fbbox .ls { font-size:8.5pt; color:#FFE9C9; margin-top:1mm; }
+
+  /* ===== Footer ===== */
+  .foot {
+    background:#3A2A1A; color:#C9B393; text-align:center;
+    font-size:9pt; letter-spacing:1px; padding:3mm 0;
+  }
+</style>
+</head>
+<body>
+
+  <div class="brandbar">光碼咖啡 × coffeeDS ｜ 雲定量磨豆機 · 技術輸出</div>
+
+  <div class="hero">
+    <div class="kicker">不是加盟，是技術輸出</div>
+    <h1>一杯咖啡，<span>一個屬於你的品牌</span></h1>
+    <div class="sub">AI 幫你設計、LINE 幫你接單 —— 100 包就能啟動的咖啡微創業</div>
+    <div class="chips">
+      <div>✓ 品牌、定價、豆源全歸你</div>
+      <div>✓ 不用加盟金、不用權利金</div>
+      <div>✓ 不懂咖啡、不懂設計也能做</div>
+    </div>
+  </div>
+
+  <div class="mech">
+    <div class="t">雲磨豆機 · 連網計次 —— 做幾包，付幾包</div>
+    <div class="s">設備用多少、付多少：成本透明、低風險起步 ｜ 賣出去的每一包，利潤都是你的</div>
+  </div>
+
+  <div class="nums">
+    <div class="num"><div class="big">NT$9,999<small> 入門</small></div><div class="cap">封口機＋咖啡豆 9 磅＋100 包材料<br>＋AI 設計平台＋創業教學</div></div>
+    <div class="num"><div class="big">$15<small> 單包成本</small></div><div class="cap">豆 $8 ＋ 包材 $5 ＋ 機台 $2<br>（雲磨豆機月租攤提）</div></div>
+    <div class="num"><div class="big">$20<small> 利潤／包</small></div><div class="cap">建議售價 $35／包<br>毛利率 57%</div></div>
+    <div class="num"><div class="big">500 包<small> 回本</small></div><div class="cap">賣出 500 包 ≈ 回本<br>＝ 5 組 100 包客戶</div></div>
+  </div>
+
+  <div class="flow">
+    <div class="step"><div class="ic">📱</div><div class="tx">LINE 接單<br>會員描述需求</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ic">🧠</div><div class="tx">AI 分析意向<br>收集條件</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ic">🎨</div><div class="tx">AI 設計包裝<br>＋生成文案</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ic">✅</div><div class="tx">LINE 提案<br>確認修改</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ic">☁️</div><div class="tx">雲磨豆機<br>定量研磨</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ic">📦</div><div class="tx">封口包裝<br>3–5 天出貨</div></div>
+  </div>
+  <div class="flownote">⚡ 當天提案設計，3–5 個工作天出貨 —— 會員只要在 LINE 像聊天一樣說出想法</div>
+
+  <div class="who">
+    <div class="h">誰適合加入</div>
+    <div class="tags">
+      <span>☕ 咖啡愛好者</span><span>🎨 設計／行銷人</span><span>🙏 教會社群</span>
+      <span>💼 待業轉職</span><span>🏪 咖啡店／工作室</span><span>👩‍👩‍👧 社區媽媽／退休族</span>
+    </div>
+    <div class="coach">全程輔導：咖啡品鑑 ｜ 磨豆機操作 ｜ AI 設計實作 ｜ LINE 接單 ｜ 定價與成本 ｜ 包裝物流 ｜ 社群獲客 —— 從零到第一組客戶，我們陪你跑</div>
+  </div>
+
+  <div class="cta">
+    <div class="h">開始你的咖啡故事</div>
+    <div class="offer">LINE 加入好友，<b>免費索取「100 包創業試算表」</b><br>前 20 位：<b>免費 2 份參考設計稿</b>（非完稿）<br>設計稿附專屬 QR —— 客人掃碼直達你的 LINE，免費設計＝幫你收名單</div>
+    <div class="btns">
+      <div class="linebox">
+        <div class="qr">【貼上<br>LINE 好友<br>QR Code】</div>
+        <div class="lb">LINE 官方帳號：光碼咖啡</div>
+        <div class="ls">掃碼或搜尋 @【你的LINE ID】</div>
+      </div>
+      <div class="fbbox">
+        <div class="lb">📘 Facebook</div>
+        <div class="ls">真禾佳咖啡工作室</div>
+        <div class="lb" style="margin-top:3mm;">🌐 官網</div>
+        <div class="ls">【reingcoffee 粉絲頁】</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">光碼創意工作室 ｜ 不是加盟，是技術輸出 —— 你的事業、你的品牌、你的故事</div>
+
+</body>
+</html>
