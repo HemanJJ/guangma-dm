@@ -7,11 +7,14 @@
   @page { size: A4 portrait; margin: 0; }
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html { background:#E4D3B8; }
   body {
     font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
-    width:210mm; height:297mm; overflow:hidden;
+    width:100%; max-width:210mm; min-height:100vh;
+    margin:0 auto;
     background:#FBF5EC; color:#3A2A1A;
     display:flex; flex-direction:column;
+    box-shadow:0 0 12px rgba(0,0,0,.18);
   }
 
   /* ===== 頂部品牌條 ===== */
@@ -32,7 +35,7 @@
   .hero h1 { font-size:31pt; line-height:1.25; font-weight:800; color:#4A3320; }
   .hero h1 span { color:#C87941; }
   .hero .sub { font-size:13.5pt; color:#6B4A2F; margin-top:4mm; font-weight:600; }
-  .chips { display:flex; justify-content:center; gap:4mm; margin-top:6mm; }
+  .chips { display:flex; flex-wrap:wrap; justify-content:center; gap:4mm; margin-top:6mm; }
   .chips div {
     background:#fff; border:1.5px solid #C87941; color:#4A3320;
     border-radius:999px; padding:2mm 5mm; font-size:10.5pt; font-weight:600;
@@ -46,7 +49,7 @@
   .mech .s { font-size:11pt; margin-top:2mm; color:#E8D5B8; }
 
   /* ===== 數字區 ===== */
-  .nums { display:flex; padding:7mm 8mm 2mm; gap:4mm; }
+  .nums { display:flex; flex-wrap:wrap; padding:7mm 8mm 2mm; gap:4mm; }
   .num {
     flex:1; background:#fff; border:1px solid #E0CFB4; border-radius:3mm;
     text-align:center; padding:5mm 2mm;
@@ -85,7 +88,7 @@
   .cta .h { font-size:17pt; font-weight:800; letter-spacing:1px; }
   .cta .offer { font-size:11.5pt; margin-top:2.5mm; line-height:1.6; }
   .cta .offer b { color:#FFE9C9; }
-  .cta .btns { display:flex; justify-content:center; gap:8mm; margin-top:5mm; align-items:flex-start; }
+  .cta .btns { display:flex; flex-wrap:wrap; justify-content:center; gap:8mm; margin-top:5mm; align-items:flex-start; }
   .linebox { text-align:center; }
   .qr {
     width:26mm; height:26mm; background:#fff; color:#999;
@@ -103,6 +106,30 @@
   .foot {
     background:#3A2A1A; color:#C9B393; text-align:center;
     font-size:9pt; letter-spacing:1px; padding:3mm 0;
+  }
+
+  /* ===== 手機：可滑動、自動排版 ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 8mm 6mm 6mm; }
+    .hero h1 { font-size: 22pt; }
+    .hero .sub { font-size: 12pt; }
+    .nums { padding: 6mm 4mm 2mm; }
+    .num { flex: 1 1 44%; }
+    .num .big { font-size: 16pt; }
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 3mm; padding: 6mm 4mm; }
+    .arrow { display: none; }
+    .step { width: auto; }
+    .flownote { padding: 0 4mm 4mm; }
+    .who { padding: 6mm 4mm 6mm; }
+    .coach { font-size: 9pt; }
+    .cta { padding: 7mm 6mm 6mm; }
+    .cta .offer { font-size: 10.5pt; }
+  }
+
+  /* ===== 列印：鎖回 A4 一頁 ===== */
+  @media print {
+    html { background: none; }
+    body { width: 210mm; min-height: 297mm; box-shadow: none; }
   }
 </style>
 </head>
