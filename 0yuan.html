@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>光碼咖啡 × 雲磨豆機｜0 元設備版</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html { background:#E4D3B8; }
+  body {
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    width:100%; max-width:210mm; margin:0 auto;
+    background:#FBF5EC; color:#3A2A1A;
+    box-shadow:0 0 14px rgba(0,0,0,.2);
+  }
+
+  /* ── 頂部品牌條 ── */
+  .brandbar {
+    background:#4A3320; color:#F3E3CB; text-align:center;
+    padding:2.1mm 0; font-size:9pt; letter-spacing:2px;
+  }
+  .brandbar b { color:#F5B56B; }
+
+  /* ── HERO：只有一句話 ── */
+  .hero { text-align:center; padding:7mm 10mm 4.2mm; }
+  .kicker {
+    display:inline-block; border:1.5px solid #C87941; color:#C87941;
+    font-size:9pt; font-weight:800; letter-spacing:1px;
+    padding:1.3mm 5mm; border-radius:999px;
+  }
+  .hero h1 {
+    font-size:31pt; line-height:1.16; font-weight:900;
+    color:#4A3320; letter-spacing:-1px; margin-top:4.5mm;
+  }
+  .hero h1 em { font-style:normal; color:#C87941; }
+  .hero .sub {
+    font-size:11.5pt; color:#6B4A2F; font-weight:600;
+    margin-top:4mm; line-height:1.65;
+  }
+  .hero .sub b { color:#4A3320; }
+
+  /* ── 王牌數字：整頁的視覺中心 ── */
+  .payback {
+    background:#4A3320; color:#F3E3CB;
+    text-align:center; padding:5.6mm 8mm;
+  }
+  .payback .row { display:flex; align-items:baseline; justify-content:center; gap:3mm; }
+  .payback .num {
+    font-size:56pt; font-weight:900; color:#F5B56B;
+    line-height:.9; letter-spacing:-2px;
+  }
+  .payback .unit { font-size:20pt; font-weight:900; color:#F3E3CB; }
+  .payback .cap {
+    font-size:10pt; color:#E8D5B8; margin-top:3mm; letter-spacing:.5px;
+  }
+
+  /* ── 三個數字 ── */
+  .stats { display:flex; gap:3mm; padding:5.2mm 10mm 2mm; }
+  .stat {
+    flex:1; background:#fff; border:1px solid #E0CFB4;
+    border-radius:3mm; text-align:center; padding:4.2mm 2mm;
+  }
+  .stat .v { font-size:18pt; font-weight:900; color:#C87941; line-height:1; }
+  .stat .k { font-size:9pt; color:#6B4A2F; font-weight:700; margin-top:2mm; }
+
+  /* ── 費用：三筆，攤開講 ── */
+  .fee { padding:4.5mm 10mm 0; }
+  .fee .h {
+    text-align:center; font-size:10pt; font-weight:800;
+    color:#4A3320; letter-spacing:1px; margin-bottom:2.6mm;
+  }
+  .fee .h span { color:#C87941; }
+  .fee table { width:100%; border-collapse:collapse; }
+  .fee td {
+    padding:2.3mm 0; border-bottom:1px dashed #E0CFB4;
+    font-size:9.5pt; color:#3A2A1A; vertical-align:middle;
+  }
+  .fee tr:last-child td { border-bottom:none; padding-bottom:1mm; }
+  .fee .label { font-weight:800; white-space:nowrap; width:19mm; }
+  .fee .amt {
+    font-weight:900; color:#C87941; white-space:nowrap;
+    text-align:right; width:25mm; font-size:11pt; padding-right:5mm;
+  }
+  .fee .note { color:#6B4A2F; font-size:8.5pt; line-height:1.5; }
+  .fee .note b { color:#4A3320; }
+  .fee .fine {
+    text-align:center; font-size:8pt; color:#8A6A4A;
+    margin-top:2.2mm; line-height:1.5;
+  }
+
+  /* ── 信任 + 適合誰 ── */
+  .trust {
+    margin:4.5mm 10mm 0; padding:3.4mm 5mm;
+    background:#F1E7D8; border-radius:3mm; text-align:center;
+  }
+  .trust .t1 { font-size:11pt; font-weight:900; color:#4A3320; line-height:1.6; letter-spacing:.5px; }
+  .trust .t1 b { color:#C87941; }
+  .trust .t2 { font-size:8.5pt; color:#6B4A2F; margin-top:1.6mm; line-height:1.6; }
+
+  /* ── CTA ── */
+  .cta { text-align:center; padding:5.2mm 12mm 3.4mm; }
+  .cta .big { font-size:13pt; font-weight:900; color:#4A3320; line-height:1.4; }
+  .cta .big em { font-style:normal; color:#C87941; }
+  .cta .gift { font-size:9.5pt; color:#6B4A2F; font-weight:600; margin-top:2mm; line-height:1.55; }
+  .cta .gift b { color:#C87941; }
+  .qr { margin:4.5mm auto 0; width:26mm; }
+  .qr img { width:100%; display:block; border-radius:2mm; }
+  .cta .line { font-size:10pt; font-weight:800; color:#4A3320; margin-top:2.6mm; letter-spacing:.5px; }
+  .cta .line span { color:#C87941; }
+  .cta .alt { font-size:8.5pt; color:#8A6A4A; margin-top:2.4mm; }
+
+  /* ── 頁尾 ── */
+  .foot {
+    background:#4A3320; color:#C9B49A; text-align:center;
+    padding:2.8mm 8mm; font-size:8pt; line-height:1.6;
+  }
+  .foot b { color:#F5B56B; }
+
+  @media print { html { background:#fff; } body { box-shadow:none; } }
+  @media (max-width:480px) {
+    .hero h1 { font-size:26pt; }
+    .payback .num { font-size:46pt; }
+    .stats { padding:5mm 6mm 2mm; }
+    .stat .v { font-size:15pt; }
+    .fee { padding-left:6mm; padding-right:6mm; }
+    .trust { margin-left:6mm; margin-right:6mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">光碼咖啡 × 雲磨豆機　·　<b>技術輸出</b>　·　不是加盟</div>
+
+<section class="hero">
+  <div class="kicker">已有磨豆機的人，看這裡</div>
+  <h1><em>0 元</em>加盟金<br><em>0 元</em>權利金</h1>
+  <div class="sub">
+    設備你自備，我不賣你設備<br>
+    —— 我只給你那顆<b>會計次</b>的插頭
+  </div>
+</section>
+
+<section class="payback">
+  <div class="row">
+    <div class="num">70</div>
+    <div class="unit">包</div>
+  </div>
+  <div class="cap">賣 70 包，就回本</div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="v">$13</div><div class="k">單包成本</div></div>
+  <div class="stat"><div class="v">$35</div><div class="k">建議售價</div></div>
+  <div class="stat"><div class="v">$22</div><div class="k">每包利潤</div></div>
+</section>
+
+<section class="fee">
+  <div class="h">費用，<span>就這三筆</span></div>
+  <table>
+    <tr>
+      <td class="label">押金</td>
+      <td class="amt">$1,000</td>
+      <td class="note">插頭租借。<b>繳滿 2 年，插頭歸你</b></td>
+    </tr>
+    <tr>
+      <td class="label">開通</td>
+      <td class="amt">$500</td>
+      <td class="note">開戶＋設定＋首月月費（<b>一次性</b>）</td>
+    </tr>
+    <tr>
+      <td class="label">月費</td>
+      <td class="amt">$100</td>
+      <td class="note">內含 <b>200 次／月</b>，第 201 次起 $1／次　·　年繳 $1,000／年（首年 $1,500 含開通）</td>
+    </tr>
+  </table>
+  <div class="fine">運費另計　·　以上未稅　·　70 包回本以年繳方案、每包利潤 $22 計算</div>
+</section>
+
+<section class="trust">
+  <div class="t1">含 <b>免費 AI 包裝設計</b>　每款 3 輪：草稿 → 修正 → 完稿</div>
+  <div class="t2">不綁豆源，豆可自備或加購　·　適合已有磨豆機的咖啡店、工作室、玩家</div>
+</section>
+
+<section class="cta">
+  <div class="big">先領一份 <em>「70 包回本試算表」</em></div>
+  <div class="gift">LINE 加入好友，<b>免費索取</b>　·　前 20 位加贈 <b>2 份包裝參考設計稿</b></div>
+  <div class="qr"><img src="line-qr.png" alt="LINE 好友 QR"></div>
+  <div class="line">LINE 官方帳號：光碼咖啡　<span>@747jdeqw</span></div>
+  <div class="alt">還沒有設備？　→　私訊聊聊</div>
+</section>
+
+<div class="foot">
+  光碼創意工作室　·　不是加盟，是技術輸出 —— <b>你的事業、你的品牌、你的故事</b>
+</div>
+
+</body>
+</html>

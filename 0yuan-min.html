@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>光碼咖啡 × 雲磨豆機｜0 元設備版（極簡）</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html { background:#1C1209; }
+  body {
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    width:100%; max-width:210mm; margin:0 auto;
+    background:#2A1C10; color:#F3E3CB;
+    box-shadow:0 0 14px rgba(0,0,0,.3);
+  }
+
+  .bar {
+    text-align:center; font-size:8.5pt; letter-spacing:4px;
+    padding:3mm 0; color:#9A7A58; border-bottom:1px solid #432F1D;
+  }
+  .bar b { color:#F5B56B; }
+
+  /* ── HERO：70 主宰整頁 ── */
+  .hero { text-align:center; padding:12mm 10mm 9mm; }
+  .kick {
+    display:inline-block; font-size:9.5pt; font-weight:800;
+    color:#C87941; letter-spacing:3px;
+  }
+  .zero {
+    font-size:19pt; font-weight:900; color:#F3E3CB;
+    line-height:1.35; margin-top:5mm; letter-spacing:.5px;
+  }
+  .num {
+    font-size:136pt; font-weight:900; color:#F5B56B;
+    line-height:.82; letter-spacing:-6px; margin-top:5mm;
+  }
+  .unit {
+    font-size:27pt; font-weight:900; color:#F3E3CB;
+    letter-spacing:1px; margin-top:1mm;
+  }
+  .sub {
+    font-size:11pt; color:#C9B49A; font-weight:600;
+    margin-top:8mm; line-height:1.7;
+  }
+
+  /* ── 一行帶過三個數字 ── */
+  .strip {
+    text-align:center; font-size:12pt; color:#C9B49A;
+    padding:4.5mm 8mm;
+    background:#22160C; border-top:1px solid #432F1D; border-bottom:1px solid #432F1D;
+    letter-spacing:.5px;
+  }
+  .strip b { color:#F5B56B; font-weight:900; font-size:13.5pt; }
+  .strip i { font-style:normal; color:#5C432A; padding:0 2mm; }
+
+  /* ── 費用：三行 ── */
+  .fees { padding:7mm 14mm 0; }
+  .fees .h {
+    font-size:9.5pt; font-weight:800; color:#C87941;
+    letter-spacing:3px; margin-bottom:3.5mm;
+  }
+  .row {
+    display:flex; align-items:baseline;
+    padding:2.6mm 0; border-bottom:1px solid #3B2917;
+    font-size:9.5pt;
+  }
+  .row:last-child { border-bottom:none; }
+  .row .k { width:16mm; font-weight:800; color:#F3E3CB; flex:none; }
+  .row .v {
+    width:24mm; text-align:right; padding-right:5mm; flex:none;
+    font-weight:900; color:#F5B56B; font-size:12pt;
+  }
+  .row .n { color:#9A7A58; line-height:1.5; }
+  .row .n b { color:#E8D5B8; }
+  .fine {
+    text-align:center; font-size:8pt; color:#7A5C3E;
+    margin-top:3.5mm; line-height:1.6;
+  }
+
+  /* ── QR ── */
+  .qrwrap { text-align:center; padding:7mm 0 2mm; }
+  .qrcard {
+    display:inline-block; background:#fff; padding:3.5mm;
+    border-radius:3mm;
+  }
+  .qrcard img { width:32mm; display:block; }
+  .qrcap { font-size:11pt; font-weight:900; color:#F5B56B; margin-top:4mm; }
+  .qrcap span { color:#C9B49A; font-weight:600; font-size:9.5pt; }
+  .qrid { font-size:10pt; font-weight:800; color:#F3E3CB; margin-top:2mm; letter-spacing:.5px; }
+
+  .foot {
+    text-align:center; font-size:8pt; color:#6B5238;
+    padding:5mm 8mm 4mm; line-height:1.6; border-top:1px solid #3B2917; margin-top:5mm;
+  }
+  .foot b { color:#C87941; }
+
+  @media print { html { background:#2A1C10; } body { box-shadow:none; } }
+  @media (max-width:480px) {
+    .hero { padding:9mm 6mm 7mm; }
+    .num { font-size:92pt; }
+    .zero { font-size:15pt; }
+    .unit { font-size:20pt; }
+    .fees { padding:5mm 7mm 0; }
+    .row { font-size:9pt; }
+    .row .v { font-size:11pt; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">光碼咖啡 × 雲磨豆機　·　<b>技術輸出</b></div>
+
+<section class="hero">
+  <div class="kick">已有磨豆機的人</div>
+  <div class="zero">0 元加盟金　·　0 元權利金</div>
+  <div class="num">70</div>
+  <div class="unit">包，就回本</div>
+  <div class="sub">
+    設備你自備 —— 我只給你那顆<b>會計次</b>的插頭
+  </div>
+</section>
+
+<div class="strip">
+  每包成本 <b>$13</b><i>·</i>售價 <b>$35</b><i>·</i>利潤 <b>$22</b>
+</div>
+
+<section class="fees">
+  <div class="h">費 用</div>
+  <div class="row">
+    <div class="k">押金</div><div class="v">$1,000</div>
+    <div class="n">插頭租借，<b>繳滿 2 年歸你</b></div>
+  </div>
+  <div class="row">
+    <div class="k">開通</div><div class="v">$500</div>
+    <div class="n">開戶＋設定＋首月（<b>一次性</b>）</div>
+  </div>
+  <div class="row">
+    <div class="k">月費</div><div class="v">$100</div>
+    <div class="n">含 <b>200 次／月</b>，超次 $1</div>
+  </div>
+  <div class="fine">
+    年繳 $1,000／年（首年 $1,500 含開通）　·　運費另計　·　未稅<br>
+    含 AI 包裝設計（每款 3 輪）　·　不綁豆源
+  </div>
+</section>
+
+<section class="qrwrap">
+  <div class="qrcard"><img src="line-qr.png" alt="LINE 好友 QR"></div>
+  <div class="qrcap">免費索取「70 包回本試算表」</div>
+  <div class="qrid">LINE 官方帳號　@747jdeqw</div>
+</section>
+
+<div class="foot">
+  光碼創意工作室　·　不是加盟，是技術輸出<br>
+  <b>你的事業、你的品牌、你的故事</b>
+</div>
+
+</body>
+</html>

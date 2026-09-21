@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>70 包回本試算表｜光碼咖啡 × 雲磨豆機</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body {
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:#EFE3D2; color:#3A2A1A;
+    padding:0 0 40px; line-height:1.6;
+  }
+  .wrap { max-width:480px; margin:0 auto; background:#FBF5EC; min-height:100vh; box-shadow:0 0 20px rgba(0,0,0,.12); }
+
+  header { background:#4A3320; color:#F3E3CB; text-align:center; padding:18px 16px 16px; }
+  header .b { font-size:12px; letter-spacing:2px; color:#C9B49A; }
+  header h1 { font-size:21px; font-weight:900; margin-top:6px; line-height:1.35; }
+  header h1 em { font-style:normal; color:#F5B56B; }
+  header .s { font-size:12px; color:#C9B49A; margin-top:6px; }
+
+  .card { margin:14px 14px 0; background:#fff; border:1px solid #E6D8C2; border-radius:12px; padding:16px; }
+  .card h2 { font-size:13px; font-weight:900; color:#C87941; letter-spacing:2px; margin-bottom:12px; }
+
+  .field { padding:10px 0; border-bottom:1px dashed #EDE2D0; }
+  .field:last-child { border-bottom:none; padding-bottom:0; }
+  .field .top { display:flex; justify-content:space-between; align-items:baseline; }
+  .field label { font-size:13px; font-weight:700; color:#4A3320; }
+  .field .val { font-size:17px; font-weight:900; color:#C87941; }
+  .field .val small { font-size:11px; color:#8A6A4A; font-weight:700; }
+  input[type=range] {
+    -webkit-appearance:none; width:100%; height:4px; border-radius:2px;
+    background:#EDE2D0; margin-top:10px; outline:none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance:none; width:22px; height:22px; border-radius:50%;
+    background:#C87941; border:3px solid #fff; box-shadow:0 1px 5px rgba(0,0,0,.3); cursor:pointer;
+  }
+  .numrow { display:flex; gap:10px; }
+  .numrow .field { flex:1; }
+  .numrow input[type=number] {
+    width:100%; margin-top:8px; padding:8px 10px; font-size:15px; font-weight:800;
+    color:#4A3320; background:#FBF5EC; border:1px solid #E6D8C2; border-radius:8px;
+    font-family:inherit; text-align:right;
+  }
+
+  .hero-out { margin:14px 14px 0; background:#4A3320; border-radius:12px; padding:20px 16px; text-align:center; color:#F3E3CB; }
+  .hero-out .k { font-size:12px; letter-spacing:2px; color:#C9B49A; }
+  .hero-out .v { font-size:44px; font-weight:900; color:#F5B56B; line-height:1.1; letter-spacing:-1px; }
+  .hero-out .v small { font-size:16px; color:#C9B49A; letter-spacing:0; }
+  .hero-out .sub { font-size:12px; color:#C9B49A; margin-top:4px; }
+
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 14px 0; }
+  .mini { background:#fff; border:1px solid #E6D8C2; border-radius:12px; padding:13px 10px; text-align:center; }
+  .mini .v { font-size:20px; font-weight:900; color:#C87941; line-height:1.2; }
+  .mini .v small { font-size:11px; color:#8A6A4A; }
+  .mini .k { font-size:11px; color:#6B4A2F; font-weight:700; margin-top:3px; }
+
+  .bar-wrap { margin:14px 14px 0; background:#fff; border:1px solid #E6D8C2; border-radius:12px; padding:16px; }
+  .bar-top { display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:#6B4A2F; margin-bottom:8px; }
+  .bar { height:10px; background:#EDE2D0; border-radius:5px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#C87941,#F5B56B); border-radius:5px; transition:width .25s; }
+
+  .detail { margin:14px 14px 0; background:#fff; border:1px solid #E6D8C2; border-radius:12px; padding:16px; }
+  .detail table { width:100%; border-collapse:collapse; font-size:13px; }
+  .detail td { padding:8px 0; border-bottom:1px dashed #EDE2D0; }
+  .detail tr:last-child td { border-bottom:none; }
+  .detail td:last-child { text-align:right; font-weight:800; white-space:nowrap; }
+  .detail .neg td:last-child { color:#B4553A; }
+  .detail .sum td { font-weight:900; color:#4A3320; font-size:15px; border-top:2px solid #4A3320; border-bottom:none; padding-top:11px; }
+
+  .scen { margin:14px 14px 0; background:#F1E7D8; border-radius:12px; padding:16px; }
+  .scen h2 { font-size:13px; font-weight:900; color:#4A3320; letter-spacing:1px; margin-bottom:10px; }
+  .scen table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  .scen th { font-size:11px; color:#8A6A4A; font-weight:700; text-align:right; padding-bottom:6px; }
+  .scen th:first-child { text-align:left; }
+  .scen td { padding:7px 0; border-top:1px solid #E2D3BC; text-align:right; font-weight:700; }
+  .scen td:first-child { text-align:left; color:#6B4A2F; }
+  .scen td.hot { color:#C87941; font-weight:900; }
+
+  .note { margin:14px 14px 0; font-size:11px; color:#8A6A4A; line-height:1.7; }
+  .note b { color:#4A3320; }
+
+  .cta { margin:18px 14px 0; background:#4A3320; border-radius:12px; padding:18px; text-align:center; color:#F3E3CB; }
+  .cta .t { font-size:14px; font-weight:900; }
+  .cta .t em { font-style:normal; color:#F5B56B; }
+  .cta .id { font-size:15px; font-weight:900; color:#F5B56B; margin-top:8px; letter-spacing:.5px; }
+  .cta .s { font-size:11px; color:#C9B49A; margin-top:6px; }
+  footer { text-align:center; font-size:10.5px; color:#9A7A58; padding:20px 16px 0; line-height:1.7; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="b">光碼咖啡 × 雲磨豆機</div>
+    <h1>賣 <em>70 包</em> 就回本<br>試算表</h1>
+    <div class="s">拖動下面的數字，看你自己做得到多少</div>
+  </header>
+
+  <div class="card">
+    <h2>你 的 條 件</h2>
+
+    <div class="field">
+      <div class="top">
+        <label>每月做幾包</label>
+        <div class="val"><span id="packsV">200</span><small> 包／月</small></div>
+      </div>
+      <input type="range" id="packs" min="10" max="1000" step="10" value="200">
+    </div>
+
+    <div class="numrow">
+      <div class="field">
+        <label>建議售價／包</label>
+        <input type="number" id="price" value="35" min="1" step="1">
+      </div>
+      <div class="field">
+        <label>豆成本／包</label>
+        <input type="number" id="bean" value="8" min="0" step="1">
+      </div>
+      <div class="field">
+        <label>包材／包</label>
+        <input type="number" id="pack" value="5" min="0" step="1">
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-out">
+    <div class="k">每 月 淨 利</div>
+    <div class="v">$<span id="profit">4,300</span></div>
+    <div class="sub">扣掉豆、包材、超次費、月費之後</div>
+  </div>
+
+  <div class="grid">
+    <div class="mini"><div class="v">$<span id="perPack">21.5</span></div><div class="k">每包淨利</div></div>
+    <div class="mini"><div class="v"><span id="paybackPacks">70</span><small> 包</small></div><div class="k">回本包數</div></div>
+  </div>
+
+  <div class="bar-wrap">
+    <div class="bar-top">
+      <span>回本進度</span>
+      <span id="pct">已完成 100%</span>
+    </div>
+    <div class="bar"><i id="barFill" style="width:100%"></i></div>
+  </div>
+
+  <div class="detail">
+    <table>
+      <tr><td>月營收</td><td id="rev">$7,000</td></tr>
+      <tr class="neg"><td>豆 ＋ 包材</td><td id="mat">-$2,600</td></tr>
+      <tr class="neg"><td>雲端超次（<span id="overN">0</span> 次 × $1）</td><td id="over">-$0</td></tr>
+      <tr class="neg"><td>月費</td><td>-$100</td></tr>
+      <tr class="sum"><td>每月淨利</td><td id="profit2">$4,300</td></tr>
+    </table>
+  </div>
+
+  <div class="scen">
+    <h2>同樣條件，不同規模</h2>
+    <table>
+      <thead><tr><th>每月包數</th><th>每月淨利</th><th>回本月數</th></tr></thead>
+      <tbody id="scenBody"></tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>算法說明</b>：雲端月費 $100 內含 <b>200 次／月</b>，第 201 次起每次 $1。
+    回本目標為首年費用 <b>$1,500</b>（開通 $500 ＋ 年繳 $1,000）。
+    押金 $1,000 為可退押金（繳滿 2 年插頭歸你），<b>不計入成本</b>。
+    以上未稅，運費另計。
+  </div>
+
+  <div class="cta">
+    <div class="t">有問題？<em>直接問我</em></div>
+    <div class="id">LINE @747jdeqw</div>
+    <div class="s">光碼咖啡 × 雲磨豆機　·　不是加盟，是技術輸出</div>
+  </div>
+
+  <footer>光碼創意工作室　·　本試算表僅供參考，實際數字依你的豆源與定價而定</footer>
+
+</div>
+
+<script>
+(function () {
+  var MONTHLY_FEE = 100, FREE = 200, OVER_UNIT = 1, GOAL = 1500;
+  var $ = function (id) { return document.getElementById(id); };
+  var packsEl = $('packs'), priceEl = $('price'), beanEl = $('bean'), packEl = $('pack');
+
+  function num(el, def) {
+    var v = parseFloat(el.value);
+    return isNaN(v) ? def : v;
+  }
+  function money(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+  function calc(packs, price, bean, pack) {
+    var over = Math.max(0, packs - FREE);
+    var rev = packs * price;
+    var mat = packs * (bean + pack);
+    var overCost = over * OVER_UNIT;
+    var profit = rev - mat - overCost - MONTHLY_FEE;
+    var perPack = packs > 0 ? profit / packs : 0;
+    return { over: over, rev: rev, mat: mat, overCost: overCost, profit: profit, perPack: perPack };
+  }
+
+  function render() {
+    var packs = num(packsEl, 200);
+    var price = num(priceEl, 35);
+    var bean  = num(beanEl, 8);
+    var pack  = num(packEl, 5);
+
+    $('packsV').textContent = packs;
+
+    var r = calc(packs, price, bean, pack);
+
+    $('profit').textContent  = Math.round(r.profit).toLocaleString('en-US');
+    $('profit2').textContent = money(r.profit);
+    $('perPack').textContent = r.perPack.toFixed(1);
+    $('rev').textContent     = money(r.rev);
+    $('mat').textContent     = '-' + money(r.mat);
+    $('over').textContent    = '-' + money(r.overCost);
+    $('overN').textContent   = r.over;
+
+    // 回本
+    var pbPacks, months, pct;
+    if (r.perPack > 0) {
+      pbPacks = Math.ceil(GOAL / r.perPack);
+      months  = r.profit > 0 ? Math.ceil(GOAL / r.profit) : null;
+    }
+    if (r.perPack <= 0) {
+      $('paybackPacks').textContent = '做越多虧越多';
+      pct = 0;
+    } else {
+      $('paybackPacks').textContent = pbPacks;
+      pct = Math.min(100, (packs / pbPacks) * 100);
+    }
+    $('pct').textContent = r.perPack <= 0 ? '無法回本' : '已完成 ' + Math.round(pct) + '%';
+    $('barFill').style.width = pct + '%';
+
+    // 情境表
+    var rows = [50, 100, 200, 500, 1000].map(function (p) {
+      var s = calc(p, price, bean, pack);
+      var m = s.profit > 0 ? Math.ceil(GOAL / s.profit) : null;
+      var cls = p === packs ? ' class="hot"' : '';
+      return '<tr' + (p === packs ? ' style="background:#fff8ee"' : '') + '>' +
+        '<td>' + p + ' 包' + (p === packs ? ' ←' : '') + '</td>' +
+        '<td' + cls + '>' + money(s.profit) + '</td>' +
+        '<td' + cls + '>' + (m === null ? '—' : m + ' 個月') + '</td>' +
+        '</tr>';
+    }).join('');
+    $('scenBody').innerHTML = rows;
+  }
+
+  [packsEl, priceEl, beanEl, packEl].forEach(function (el) {
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
+  });
+  render();
+})();
+</script>
+</body>
+</html>
