@@ -19,110 +19,123 @@
   /* ── 頂部品牌條 ── */
   .brandbar {
     background:#4A3320; color:#F3E3CB; text-align:center;
-    padding:2.1mm 0; font-size:9pt; letter-spacing:2px;
+    padding:2mm 0; font-size:9pt; letter-spacing:2px;
   }
   .brandbar b { color:#F5B56B; }
 
   /* ── HERO ── */
-  .hero { text-align:center; padding:6.5mm 10mm 5mm; }
+  .hero { text-align:center; padding:5.6mm 10mm 4mm; }
   .kicker {
     display:inline-block; border:1.5px solid #C87941; color:#C87941;
-    font-size:9pt; font-weight:800; letter-spacing:1px;
-    padding:1.2mm 5mm; border-radius:999px;
+    font-size:8.5pt; font-weight:800; letter-spacing:1px;
+    padding:1.1mm 4.5mm; border-radius:999px;
   }
   .hero h1 {
-    font-size:28pt; line-height:1.16; font-weight:900;
-    color:#4A3320; letter-spacing:-1px; margin-top:4mm;
+    font-size:26pt; line-height:1.14; font-weight:900;
+    color:#4A3320; letter-spacing:-1px; margin-top:3.4mm;
   }
   .hero h1 em { font-style:normal; color:#C87941; }
   .hero .sub {
-    font-size:11pt; color:#6B4A2F; font-weight:600;
-    margin-top:3.5mm; line-height:1.6;
+    font-size:10.5pt; color:#6B4A2F; font-weight:600;
+    margin-top:3mm; line-height:1.55;
   }
   .hero .sub b { color:#4A3320; }
 
-  /* ── 實拍照片 ── */
-  .shots { display:flex; gap:2.5mm; padding:0 10mm; height:55.5mm; }
-  .shot { position:relative; overflow:hidden; border-radius:3mm; background:#E8DAC4; }
-  .shot img { width:100%; height:100%; object-fit:cover; display:block; }
-  .shot.product { width:32mm; flex:none; }
-  .shot.usage { flex:1; }
-  .shot.usage img { object-position:center 42%; }
-  .shotcap {
-    position:absolute; left:0; right:0; bottom:0;
-    background:linear-gradient(to top, rgba(35,22,11,.94) 45%, rgba(35,22,11,0));
-    color:#fff; padding:7mm 2.5mm 2mm; text-align:center;
+  /* ── POP 陳列台 ── */
+  .pop {
+    margin:3.6mm 10mm 0;
+    background:linear-gradient(160deg,#F8F0E3 0%,#EDE0CB 58%,#DFCDB1 100%);
+    border-radius:4mm; padding:5mm 4mm 4mm;
+    box-shadow:inset 0 0 0 1px rgba(200,121,65,.18);
   }
-  .shotcap b { display:block; font-size:9.5pt; font-weight:900; line-height:1.3; }
-  .shotcap span { font-size:7.5pt; color:#E4D3B8; }
+  .poprow { display:flex; gap:3.4mm; justify-content:center; }
+  .popcard {
+    width:43.5mm; height:52.2mm;
+    border-radius:2.6mm; overflow:hidden; position:relative;
+    background:#fff;
+    box-shadow:0 1.2mm 1.6mm rgba(58,42,26,.22), 0 4.6mm 7mm rgba(58,42,26,.22);
+  }
+  .popcard img { width:100%; height:100%; object-fit:cover; display:block; }
+  .popcard .tag {
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(to top,rgba(33,21,10,.95) 40%,rgba(33,21,10,0));
+    color:#fff; text-align:center; padding:6mm 1mm 1.4mm;
+  }
+  .popcard .tag b { display:block; font-size:8pt; font-weight:900; line-height:1.25; }
+  .popcard .tag span { font-size:6.6pt; color:#E4D3B8; font-weight:600; }
+  .popcap {
+    text-align:center; margin-top:3.2mm;
+    font-size:8.5pt; font-weight:800; color:#6B4A2F; letter-spacing:.3px;
+  }
+  .popcap b { color:#C87941; }
 
   /* ── 王牌數字 ── */
   .payback {
     background:#4A3320; color:#F3E3CB; text-align:center;
-    padding:5.4mm 8mm; margin-top:5mm;
+    padding:4.8mm 8mm; margin-top:4.4mm;
   }
   .payback .row { display:flex; align-items:baseline; justify-content:center; gap:3mm; }
-  .payback .num { font-size:50pt; font-weight:900; color:#F5B56B; line-height:.9; letter-spacing:-2px; }
-  .payback .unit { font-size:18pt; font-weight:900; color:#F3E3CB; }
-  .payback .cap { font-size:9.5pt; color:#E8D5B8; margin-top:2mm; letter-spacing:.5px; }
+  .payback .num { font-size:46pt; font-weight:900; color:#F5B56B; line-height:.9; letter-spacing:-2px; }
+  .payback .unit { font-size:17pt; font-weight:900; color:#F3E3CB; }
+  .payback .cap { font-size:9pt; color:#E8D5B8; margin-top:1.8mm; letter-spacing:.3px; }
 
   /* ── 費用 ── */
-  .fee { padding:4.6mm 10mm 0; }
+  .fee { padding:4.2mm 10mm 0; }
   .fee .h {
-    text-align:center; font-size:10pt; font-weight:800;
-    color:#4A3320; letter-spacing:1px; margin-bottom:2.4mm;
+    text-align:center; font-size:9.5pt; font-weight:800;
+    color:#4A3320; letter-spacing:1px; margin-bottom:2.2mm;
   }
   .fee .h span { color:#C87941; }
   .fee table { width:100%; border-collapse:collapse; }
   .fee td {
-    padding:2.2mm 0; border-bottom:1px dashed #E0CFB4;
-    font-size:9.5pt; color:#3A2A1A; vertical-align:middle;
+    padding:2mm 0; border-bottom:1px dashed #E0CFB4;
+    font-size:9pt; color:#3A2A1A; vertical-align:middle;
   }
-  .fee tr:last-child td { border-bottom:none; padding-bottom:0.8mm; }
-  .fee .label { font-weight:800; white-space:nowrap; width:19mm; }
+  .fee tr:last-child td { border-bottom:none; padding-bottom:0.6mm; }
+  .fee .label { font-weight:800; white-space:nowrap; width:18mm; }
   .fee .amt {
     font-weight:900; color:#C87941; white-space:nowrap;
-    text-align:right; width:25mm; font-size:11pt; padding-right:5mm;
+    text-align:right; width:24mm; font-size:10.5pt; padding-right:4.5mm;
   }
-  .fee .note { color:#6B4A2F; font-size:8.5pt; line-height:1.5; }
+  .fee .note { color:#6B4A2F; font-size:8pt; line-height:1.45; }
   .fee .note b { color:#4A3320; }
-  .fee .fine { text-align:center; font-size:8pt; color:#8A6A4A; margin-top:2mm; line-height:1.5; }
+  .fee .fine { text-align:center; font-size:7.6pt; color:#8A6A4A; margin-top:1.8mm; line-height:1.45; }
 
   /* ── 信任 ── */
   .trust {
-    margin:4.2mm 10mm 0; padding:3.2mm 5mm;
+    margin:3.8mm 10mm 0; padding:2.9mm 5mm;
     background:#F1E7D8; border-radius:3mm; text-align:center;
   }
-  .trust .t1 { font-size:10.5pt; font-weight:900; color:#4A3320; line-height:1.55; letter-spacing:.5px; }
+  .trust .t1 { font-size:10pt; font-weight:900; color:#4A3320; line-height:1.5; letter-spacing:.3px; }
   .trust .t1 b { color:#C87941; }
-  .trust .t2 { font-size:8.5pt; color:#6B4A2F; margin-top:1.4mm; line-height:1.55; }
+  .trust .t2 { font-size:8pt; color:#6B4A2F; margin-top:1.2mm; line-height:1.5; }
 
   /* ── CTA ── */
-  .cta { text-align:center; padding:4.4mm 12mm 3mm; }
-  .cta .big { font-size:13pt; font-weight:900; color:#4A3320; line-height:1.4; }
+  .cta { text-align:center; padding:4mm 12mm 2.8mm; }
+  .cta .big { font-size:12.5pt; font-weight:900; color:#4A3320; line-height:1.35; }
   .cta .big em { font-style:normal; color:#C87941; }
-  .cta .gift { font-size:9.5pt; color:#6B4A2F; font-weight:600; margin-top:2mm; line-height:1.55; }
+  .cta .gift { font-size:9pt; color:#6B4A2F; font-weight:600; margin-top:1.8mm; line-height:1.5; }
   .cta .gift b { color:#C87941; }
-  .qr { margin:4mm auto 0; width:24mm; }
+  .qr { margin:3.4mm auto 0; width:22mm; }
   .qr img { width:100%; display:block; border-radius:2mm; }
-  .cta .line { font-size:10pt; font-weight:800; color:#4A3320; margin-top:2.4mm; letter-spacing:.5px; }
+  .cta .line { font-size:9.5pt; font-weight:800; color:#4A3320; margin-top:2.2mm; letter-spacing:.4px; }
   .cta .line span { color:#C87941; }
-  .cta .alt { font-size:8.5pt; color:#8A6A4A; margin-top:2.2mm; }
+  .cta .alt { font-size:8pt; color:#8A6A4A; margin-top:2mm; }
 
   /* ── 頁尾 ── */
   .foot {
     background:#4A3320; color:#C9B49A; text-align:center;
-    padding:2.8mm 8mm; font-size:8pt; line-height:1.6;
+    padding:2.6mm 8mm; font-size:7.8pt; line-height:1.55;
   }
   .foot b { color:#F5B56B; }
 
   @media print { html { background:#fff; } body { box-shadow:none; } }
   @media (max-width:480px) {
-    .hero h1 { font-size:23pt; }
-    .payback .num { font-size:40pt; }
-    .shots { height:auto; padding:0 6mm; gap:2mm; }
-    .shot.product { width:32%; }
-    .shot { height:48mm; }
+    .hero h1 { font-size:21pt; }
+    .payback .num { font-size:36pt; }
+    .pop { margin-left:6mm; margin-right:6mm; }
+    .poprow { gap:2mm; }
+    .popcard { width:30%; height:40mm; }
     .fee, .trust { margin-left:6mm; margin-right:6mm; }
     .fee { padding-left:6mm; padding-right:6mm; }
   }
@@ -141,15 +154,22 @@
   </div>
 </section>
 
-<section class="shots">
-  <div class="shot product">
-    <img src="img-product.jpg" alt="耳掛包成品">
-    <div class="shotcap"><b>你的品牌</b><span>10×12cm 耳掛包</span></div>
+<section class="pop">
+  <div class="poprow">
+    <div class="popcard">
+      <img src="img-product.jpg" alt="畫家耳掛包成品" style="object-position:center 4%">
+      <div class="tag"><b>畫家 · 周玉茹</b><span>福音咖啡耳掛包</span></div>
+    </div>
+    <div class="popcard">
+      <img src="img-card.jpg" alt="Uber 司機品牌卡成品" style="object-position:center 50%;transform:scale(1.28)">
+      <div class="tag"><b>Uber 司機 · 李志明</b><span>個人品牌卡</span></div>
+    </div>
+    <div class="popcard">
+      <img src="img-usage.jpg" alt="實際使用設備" style="object-position:56% 45%">
+      <div class="tag"><b>你的設備</b><span>自己的磨豆機</span></div>
+    </div>
   </div>
-  <div class="shot usage">
-    <img src="img-usage.jpg" alt="實際使用">
-    <div class="shotcap"><b>你的設備，開機就能賣</b><span>自己的磨豆機　·　插頭幫你計次</span></div>
-  </div>
+  <div class="popcap">排版完稿成品範例　·　<b>10×12cm</b>　·　你的品牌也做成這樣</div>
 </section>
 
 <section class="payback">
