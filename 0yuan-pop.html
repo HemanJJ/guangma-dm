@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>光碼咖啡 × 雲磨豆機｜0 元設備版</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html { background:#E4D3B8; }
+  body {
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    width:100%; max-width:210mm; margin:0 auto;
+    background:#FBF5EC; color:#3A2A1A;
+    box-shadow:0 0 14px rgba(0,0,0,.2);
+  }
+
+  /* ── 頂部品牌條 ── */
+  .brandbar {
+    background:#4A3320; color:#F3E3CB; text-align:center;
+    padding:2mm 0; font-size:9pt; letter-spacing:2px;
+  }
+  .brandbar b { color:#F5B56B; }
+
+  /* ── HERO ── */
+  .hero { text-align:center; padding:5.6mm 10mm 4mm; }
+  .kicker {
+    display:inline-block; border:1.5px solid #C87941; color:#C87941;
+    font-size:8.5pt; font-weight:800; letter-spacing:1px;
+    padding:1.1mm 4.5mm; border-radius:999px;
+  }
+  .hero h1 {
+    font-size:26pt; line-height:1.14; font-weight:900;
+    color:#4A3320; letter-spacing:-1px; margin-top:3.4mm;
+  }
+  .hero h1 em { font-style:normal; color:#C87941; }
+  .hero .sub {
+    font-size:10.5pt; color:#6B4A2F; font-weight:600;
+    margin-top:3mm; line-height:1.55;
+  }
+  .hero .sub b { color:#4A3320; }
+
+  /* ── POP 陳列台 ── */
+  .pop {
+    margin:3.6mm 10mm 0;
+    background:linear-gradient(160deg,#F8F0E3 0%,#EDE0CB 58%,#DFCDB1 100%);
+    border-radius:4mm; padding:5mm 4mm 4mm;
+    box-shadow:inset 0 0 0 1px rgba(200,121,65,.18);
+  }
+  .poprow { display:flex; gap:3.4mm; justify-content:center; }
+  .popcard {
+    width:43.5mm; height:52.2mm;
+    border-radius:2.6mm; overflow:hidden; position:relative;
+    background:#fff;
+    box-shadow:0 1.2mm 1.6mm rgba(58,42,26,.22), 0 4.6mm 7mm rgba(58,42,26,.22);
+  }
+  .popcard img { width:100%; height:100%; object-fit:cover; display:block; }
+  .popcard .tag {
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(to top,rgba(33,21,10,.95) 40%,rgba(33,21,10,0));
+    color:#fff; text-align:center; padding:6mm 1mm 1.4mm;
+  }
+  .popcard .tag b { display:block; font-size:8pt; font-weight:900; line-height:1.25; }
+  .popcard .tag span { font-size:6.6pt; color:#E4D3B8; font-weight:600; }
+  .popcap {
+    text-align:center; margin-top:3.2mm;
+    font-size:8.5pt; font-weight:800; color:#6B4A2F; letter-spacing:.3px;
+  }
+  .popcap b { color:#C87941; }
+
+  /* ── 王牌數字 ── */
+  .payback {
+    background:#4A3320; color:#F3E3CB; text-align:center;
+    padding:4.8mm 8mm; margin-top:4.4mm;
+  }
+  .payback .row { display:flex; align-items:baseline; justify-content:center; gap:3mm; }
+  .payback .num { font-size:46pt; font-weight:900; color:#F5B56B; line-height:.9; letter-spacing:-2px; }
+  .payback .unit { font-size:17pt; font-weight:900; color:#F3E3CB; }
+  .payback .cap { font-size:9pt; color:#E8D5B8; margin-top:1.8mm; letter-spacing:.3px; }
+
+  /* ── 費用 ── */
+  .fee { padding:4.2mm 10mm 0; }
+  .fee .h {
+    text-align:center; font-size:9.5pt; font-weight:800;
+    color:#4A3320; letter-spacing:1px; margin-bottom:2.2mm;
+  }
+  .fee .h span { color:#C87941; }
+  .fee table { width:100%; border-collapse:collapse; }
+  .fee td {
+    padding:2mm 0; border-bottom:1px dashed #E0CFB4;
+    font-size:9pt; color:#3A2A1A; vertical-align:middle;
+  }
+  .fee tr:last-child td { border-bottom:none; padding-bottom:0.6mm; }
+  .fee .label { font-weight:800; white-space:nowrap; width:18mm; }
+  .fee .amt {
+    font-weight:900; color:#C87941; white-space:nowrap;
+    text-align:right; width:24mm; font-size:10.5pt; padding-right:4.5mm;
+  }
+  .fee .note { color:#6B4A2F; font-size:8pt; line-height:1.45; }
+  .fee .note b { color:#4A3320; }
+  .fee .fine { text-align:center; font-size:7.6pt; color:#8A6A4A; margin-top:1.8mm; line-height:1.45; }
+
+  /* ── 信任 ── */
+  .trust {
+    margin:3.8mm 10mm 0; padding:2.9mm 5mm;
+    background:#F1E7D8; border-radius:3mm; text-align:center;
+  }
+  .trust .t1 { font-size:10pt; font-weight:900; color:#4A3320; line-height:1.5; letter-spacing:.3px; }
+  .trust .t1 b { color:#C87941; }
+  .trust .t2 { font-size:8pt; color:#6B4A2F; margin-top:1.2mm; line-height:1.5; }
+
+  /* ── CTA ── */
+  .cta { text-align:center; padding:4mm 12mm 2.8mm; }
+  .cta .big { font-size:12.5pt; font-weight:900; color:#4A3320; line-height:1.35; }
+  .cta .big em { font-style:normal; color:#C87941; }
+  .cta .gift { font-size:9pt; color:#6B4A2F; font-weight:600; margin-top:1.8mm; line-height:1.5; }
+  .cta .gift b { color:#C87941; }
+  .qr { margin:3.4mm auto 0; width:22mm; }
+  .qr img { width:100%; display:block; border-radius:2mm; }
+  .cta .line { font-size:9.5pt; font-weight:800; color:#4A3320; margin-top:2.2mm; letter-spacing:.4px; }
+  .cta .line span { color:#C87941; }
+  .cta .alt { font-size:8pt; color:#8A6A4A; margin-top:2mm; }
+
+  /* ── 頁尾 ── */
+  .foot {
+    background:#4A3320; color:#C9B49A; text-align:center;
+    padding:2.6mm 8mm; font-size:7.8pt; line-height:1.55;
+  }
+  .foot b { color:#F5B56B; }
+
+  @media print { html { background:#fff; } body { box-shadow:none; } }
+  @media (max-width:480px) {
+    .hero h1 { font-size:21pt; }
+    .payback .num { font-size:36pt; }
+    .pop { margin-left:6mm; margin-right:6mm; }
+    .poprow { gap:2mm; }
+    .popcard { width:30%; height:40mm; }
+    .fee, .trust { margin-left:6mm; margin-right:6mm; }
+    .fee { padding-left:6mm; padding-right:6mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">光碼咖啡 × 雲磨豆機　·　<b>技術輸出</b>　·　不是加盟</div>
+
+<section class="hero">
+  <div class="kicker">已有磨豆機的人，看這裡</div>
+  <h1><em>0 元</em>加盟金　·　<em>0 元</em>權利金</h1>
+  <div class="sub">
+    設備你自備，我不賣你設備<br>
+    —— 我只給你那顆<b>會計次</b>的插頭
+  </div>
+</section>
+
+<section class="pop">
+  <div class="poprow">
+    <div class="popcard">
+      <img src="img-product.jpg" alt="畫家耳掛包成品" style="object-position:center 4%">
+      <div class="tag"><b>畫家 · 周玉茹</b><span>福音咖啡耳掛包</span></div>
+    </div>
+    <div class="popcard">
+      <img src="img-card.jpg" alt="Uber 司機品牌卡成品" style="object-position:center 50%;transform:scale(1.28)">
+      <div class="tag"><b>Uber 司機 · 李志明</b><span>個人品牌卡</span></div>
+    </div>
+    <div class="popcard">
+      <img src="img-usage.jpg" alt="實際使用設備" style="object-position:56% 45%">
+      <div class="tag"><b>你的設備</b><span>自己的磨豆機</span></div>
+    </div>
+  </div>
+  <div class="popcap">排版完稿成品範例　·　<b>10×12cm</b>　·　你的品牌也做成這樣</div>
+</section>
+
+<section class="payback">
+  <div class="row">
+    <div class="num">70</div>
+    <div class="unit">包</div>
+  </div>
+  <div class="cap">賣 70 包，就回本　·　每包成本 $13、售價 $35、利潤 $22</div>
+</section>
+
+<section class="fee">
+  <div class="h">費用，<span>就這三筆</span></div>
+  <table>
+    <tr>
+      <td class="label">押金</td>
+      <td class="amt">$1,000</td>
+      <td class="note">插頭租借。<b>繳滿 2 年，插頭歸你</b></td>
+    </tr>
+    <tr>
+      <td class="label">開通</td>
+      <td class="amt">$500</td>
+      <td class="note">開戶＋設定＋首月月費（<b>一次性</b>）</td>
+    </tr>
+    <tr>
+      <td class="label">月費</td>
+      <td class="amt">$100</td>
+      <td class="note">內含 <b>200 次／月</b>，第 201 次起 $1／次　·　年繳 $1,000／年（首年 $1,500 含開通）</td>
+    </tr>
+  </table>
+  <div class="fine">運費另計　·　以上未稅　·　70 包回本以年繳方案、每包利潤 $22 計算</div>
+</section>
+
+<section class="trust">
+  <div class="t1">內含 <b>包裝排版完稿</b>　每款 3 輪：初排 → 修正 → 完稿</div>
+  <div class="t2">你出想法，我排成可印刷的檔（AI ＋ Canva，不含 Logo／品牌識別）　·　不綁豆源</div>
+</section>
+
+<section class="cta">
+  <div class="big">先領一份 <em>「70 包回本試算表」</em></div>
+  <div class="gift">LINE 加入好友，<b>免費索取</b>　·　前 20 位加贈 <b>2 份包裝排版參考</b></div>
+  <div class="qr"><img src="line-qr.png" alt="LINE 好友 QR"></div>
+  <div class="line">LINE 官方帳號：光碼咖啡　<span>@747jdeqw</span></div>
+  <div class="alt">還沒有設備？　→　私訊聊聊</div>
+</section>
+
+<div class="foot">
+  光碼創意工作室　·　不是加盟，是技術輸出 —— <b>你的事業、你的品牌、你的故事</b>
+</div>
+
+</body>
+</html>
